@@ -8,7 +8,7 @@ adrip=$(grep [1-9] < /etc/ip.txt)
 adrip2=$(wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1)
 
 #test de l'ip
-if [ $adrip != $adrip2 ]
+if [ "$adrip" != "$adrip2" ];
 then
         echo $adrip2 | mail -s "nouvelle ip" mail@fai.com
 fi
